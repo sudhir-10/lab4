@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Country Capitals</title>
+
+  <style>
+    /* ---------- Page layout ---------- */
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background-color: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 80px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      color: #1f2d3d;
+    }
+
+    /* Keeps the select box and the capital on the same line */
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* ---------- Select box ---------- */
+    select {
+      font-size: 1.1rem;
+      padding: 8px 12px;
+      border: 2px solid #1f2d3d;
+      border-radius: 6px;
+      background-color: #ffffff;
+    }
+
+    /* ---------- Capital text: font properties customised here ---------- */
+    #capital {
+      color: #c0392b;        /* font color */
+      font-weight: bold;     /* bold text */
+      font-size: 28px;       /* font size */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Select a country to see its capital</h1>
+
+  <div class="row">
+    <!-- Selection box with 5 countries.
+         The value of each option holds the country's capital. -->
+    <select id="country" onchange="showCapital()">
+      <option value="">-- Choose a country --</option>
+      <option value="New Delhi">India</option>
+      <option value="Paris">France</option>
+      <option value="Tokyo">Japan</option>
+      <option value="Brasília">Brazil</option>
+      <option value="Canberra">Australia</option>
+    </select>
+
+    <!-- The capital is printed here, next to the list -->
+    <span id="capital"></span>
+  </div>
+
+  <script>
+    // Runs every time the user changes the selected country
+    function showCapital() {
+      // Get the value (capital) of the selected option
+      var capital = document.getElementById("country").value;
+
+      // Print the capital inside the span next to the select box
+      document.getElementById("capital").textContent = capital;
+    }
+  </script>
+</body>
+</html>
